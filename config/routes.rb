@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   Dir.glob(Rails.root.join('engines').to_s + "/*") do |d|
     eg = d.split(/[\/\\]/).last
-		if eg != "core" and Erp::Core.available?(eg)
+		if eg != "core" and Gns::Core.available?(eg)
 			mount "Gns::#{eg.camelize}::Engine".constantize => "/", as: 'gns_' + eg
 		end
   end
